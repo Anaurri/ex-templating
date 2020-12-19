@@ -1,0 +1,13 @@
+
+{{#each tweets as |tweet|}}
+{{#with tweet}}
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{tweet.user}}</h5>
+        <p class="card-text">{{tweet.message}}</p>
+        <h6>{{tweet.createdAt}}</h6>
+    </div>
+</div>
+{{/with}}
+{{/each}}
