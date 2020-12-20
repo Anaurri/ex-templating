@@ -42,7 +42,11 @@
             <h5 class="card-header">{{user}}</h5>
             <div class="card-body">
                 <p class="card-text">{{message}}</p>
-                <h6>{{createdAt}}</h6>
+                <h6>
+                    {{#if createdAt}}
+                        {{date createdAt}}
+                    {{/if}}
+                </h6>
             </div> 
         </div>
     </div>
