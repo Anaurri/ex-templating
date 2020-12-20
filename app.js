@@ -16,6 +16,7 @@ require('./config/hbs.config');
 app.use(logger('dev'));
 
 // Iteration 5: configure body parser
+app.use(express.urlencoded({ extended: true }));
 
 // Iteration 2: configure global template vars (res.locals.*)
 app.use((req, res, next)=>{

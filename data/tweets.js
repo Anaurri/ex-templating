@@ -21,5 +21,5 @@ module.exports = [
     message: 'Lorem fistrum quietooor al ataquerl caballo blanco caballo negroorl amatomaa fistro la caidita jarl tiene musho peligro.',
     createdAt: new Date('05-18-2019 11:00:00'),
     fav: false
-  }
+  },
 ]

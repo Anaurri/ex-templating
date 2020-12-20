@@ -1,12 +1,10 @@
 const express = require('express');
+const router = express.Router();
 // Iteration 1: import common controller
 const common = require ('../controllers/common.controller');
-const tweets = require ('../controllers/tweets.controller');
-
 
 // Iteration 3: import tweets controller
-
-const router = express.Router();
+const tweets = require ('../controllers/tweets.controller');
 
 // Iteration 1: link GET '/' with common controller home
 router.get("/", common.home);
@@ -15,6 +13,7 @@ router.get("/", common.home);
 router.get("/tweets", tweets.list);
 
 // Iteration 4: link POST '/tweets' with tweets controller create
+router.post('/tweets', tweets.create)
 // Iteration 5: link POST '/tweets/:id/delete' with tweets controller delete
 
 module.exports = router;
