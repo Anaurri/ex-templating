@@ -1,13 +1,53 @@
+<form  class="container form" action="/tweets" method="post">
+    <div class="input-group mb-3">
+        <span class="input-group-text {{#if errors.user}}is-invalid{{/if}}" id="basic-addon1">@</span>
+        <input type="text" class="form-control" name="user" placeholder="Type tweet user..." value="{{ tweet.user }}">
+        {{#if errors.user}}
+            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            {{errors.user}}
+            </div>
+        {{/if}}
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">></span>
+        <textarea class="form-control {{#if errors.message}}is-invalid{{/if}}" name="message"  rows="3" value="{{ tweet.message }}"></textarea>
+        {{#if errors.message}}
+            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            {{errors.message}}
+            </div>
+        {{/if}}
+
+        <button type="submit" class="btn btn-primary">Create tweet</button>
+    </div>
+</form>
+
+<hr>
+
+<form class="container form" action="/tweets" method="get">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <input type="text" class="form-control" name="user" placeholder="Type tweet user..." value="{{ user }}">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+<hr>
 
 {{#each tweets as |tweet|}}
 {{#with tweet}}
 
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{tweet.user}}</h5>
-        <p class="card-text">{{tweet.message}}</p>
-        <h6>{{tweet.createdAt}}</h6>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-header">{{user}}</h5>
+            <div class="card-body">
+                <p class="card-text">{{message}}</p>
+                <h6>{{createdAt}}</h6>
+            </div> 
+        </div>
     </div>
 </div>
+
 {{/with}}
 {{/each}}
+
