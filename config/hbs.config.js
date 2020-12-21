@@ -14,5 +14,3 @@ hbs.registerHelper('active', (path, hint) => {
 hbs.registerHelper('date', (date) => {
     return moment(date).startOf().fromNow();
 });
-
-

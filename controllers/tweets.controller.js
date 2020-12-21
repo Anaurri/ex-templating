@@ -2,27 +2,17 @@
 const tweetsDB = require('../data/tweets');
 // Iteration 3: list tweets from file
 module.exports.list = (req, res, next) => {
-  // Order tweets desc by date
-  const tweets = tweetsDB.sort((t1, t2) => {
-    return t2.createdAt - t1.createdAt
-  })
   
-  
-  // Iteration 4: filter tweets by user checking the query param 'name'
   const { user } = req.query; // igual a "const user = req.query.user"
-  const tweetsFilter = tweetsDB.filter(tweet => {
-    if (user) {
-      return tweet.user.includes(user)
-    } else {
-      return true;
-    }
-  })
-    
+  const tweets = tweetsDB
+  // Order tweets desc by date
+    .sort((t1, t2) => t2.createdAt - t1.createdAt)
+  // Iteration 4: filter tweets by user checking the query param 'name'
+    .filter(tweet => user ? tweet.user.includes(user) : true);
 
   res.render('tweets/list', {
     tweets: tweets,
     user: user,
-    tweets: tweetsFilter
   });
 }
 
